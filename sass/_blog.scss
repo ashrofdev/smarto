@@ -1,0 +1,60 @@
+.grid {
+  grid-column: center-start / center-end;
+  padding: 5rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5rem 2rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    display: block;
+  }
+
+  & .card {
+    cursor: pointer;
+    box-shadow: 2px 2px 1rem #777;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-bottom: 2rem;
+    }
+
+    & .img {
+      width: 100%;
+    }
+
+    & .cont {
+      padding: 1rem;
+
+      & span {
+        margin-right: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+        color: $text-color;
+      }
+
+      & .heading {
+        border-top: 1px solid rgb(236, 234, 234);
+        margin-top: 1rem;
+        padding-top: 1rem;
+        font-size: 1.2rem;
+      }
+
+      & .paragraph {
+        font-size: 1.2rem;
+        color: $text-color;
+        padding: 1rem 0;
+      }
+
+      & .link {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: rgb(77, 75, 75);
+        padding: 1rem 0;
+      }
+    }
+  }
+}

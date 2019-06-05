@@ -1,0 +1,451 @@
+.container2 {
+  display: grid;
+  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(6,
+    minmax(6rem, 13rem)) [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-columns:
+      [full-start] minmax(2rem, 1fr) [center-start] repeat(6,
+      minmax(6rem, 13rem)) [center-end] minmax(2rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    display: block;
+  }
+
+  & .head {
+    @media only screen and (max-width: $bp-small) {
+      padding: 2rem;
+    }
+
+    animation: head 0.5s;
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(6,
+    minmax(6rem, 13rem)) [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns:
+        [full-start] minmax(2rem, 1fr) [center-start] repeat(6,
+        minmax(6rem, 13rem)) [center-end] minmax(2rem, 1fr) [full-end];
+    }
+
+    background-image: url(../img/breadcrumb/breadcrumb.jpg);
+    background-size: cover;
+
+    @media only screen and (max-width: $bp-small) {
+      background-position: center;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      display: block;
+    }
+
+    background-repeat: no-repeat;
+
+    & .content {
+      grid-column: center-start / center-end;
+
+      & .text {
+        animation: text 0.8s 1s;
+        font-size: 3rem;
+        text-align: center;
+        padding: 6rem 0;
+        animation-fill-mode: backwards;
+      }
+
+      & .heading {
+        animation: head 0.8s 0.3s;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        animation-fill-mode: backwards;
+
+        @media only screen and (max-width: $bp-medium) {
+          display: block;
+          text-align: center;
+        }
+
+        & .navigation {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 1rem;
+
+          @media only screen and (max-width: $bp-smallest) {
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            justify-content: center;
+          }
+
+          & .list {
+            display: flex;
+            opacity: 0;
+            visibility: collapse;
+            transform: translateX(5rem);
+            transition: all 0.5s;
+
+            @media only screen and (max-width: $bp-smallest) {
+              transform: translateX(0);
+              display: grid;
+              grid-template-columns: repeat(1, max-content);
+              justify-self: center;
+              height: 2rem;
+            }
+
+            & .item {
+              list-style: none;
+              margin-right: 1rem;
+
+              & a {
+                text-decoration: none;
+                color: $color-black;
+                padding: 0.5rem;
+                position: relative;
+
+                &::before {
+                  content: "";
+                  width: 100%;
+                  height: 0.3rem;
+                  position: absolute;
+                  background-color: black;
+                  bottom: -0.5rem;
+                  left: 0;
+                  transform: scaleX(0);
+                  transition: all 0.5s;
+                }
+
+                &:hover::before {
+                  transform: scaleX(1);
+                }
+              }
+            }
+          }
+
+          & .show {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+
+            @media only screen and (max-width: $bp-smallest) {
+              height: 50vh;
+            }
+          }
+
+          & .btn {
+            margin-top: 0.5rem;
+            width: 3.5rem;
+            height: 0.3rem;
+            background-color: black;
+            outline: none;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            @media only screen and (max-width: $bp-smallest) {
+              justify-self: flex-end;
+            }
+
+            &::before {
+              content: "";
+              width: 80%;
+              height: 90%;
+              position: absolute;
+              background-color: black;
+              bottom: -0.5rem;
+              left: 0;
+              transition: all 0.5s;
+            }
+
+            &::after {
+              content: "";
+              width: 60%;
+              height: 80%;
+              position: absolute;
+              background-color: black;
+              bottom: -1rem;
+              left: 0;
+            }
+          }
+
+          & .btnx {
+            transform: rotate(400deg);
+            outline: none;
+
+            &::before {
+              transform: rotate(460deg) translateX(-0.4rem);
+              height: 100%;
+              width: 100%;
+            }
+
+            &::after {
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  & .words {
+    padding: 0 2rem;
+    margin-top: 10rem;
+    grid-column: center-start / center-end;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    grid-gap: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+    }
+
+    & .left {
+      @media only screen and (max-width: $bp-smallest) {
+        margin-bottom: 2rem;
+      }
+
+      & .heading {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      & .paragraph {
+        margin-bottom: 2rem;
+      }
+
+      & .link {
+        text-decoration: none;
+        padding: 1rem 2rem;
+        color: $color-black;
+        font-size: 1.2rem;
+        border: 1px solid currentColor;
+      }
+    }
+
+    & .right {
+      & .grade {
+        display: grid;
+        grid-template-columns: repeat(7, 5rem);
+        grid-gap: 1rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          grid-template-columns: repeat(7, 1fr);
+        }
+
+        & .text {
+          grid-column: 1 / 5;
+        }
+
+        & .value {
+          grid-column: 7 / 8;
+        }
+
+        & .rate {
+          grid-column: 1 / -1;
+        }
+      }
+
+      & .heading {
+        font-size: 2rem;
+        padding: 1rem 0;
+      }
+
+      & .text {
+        margin-top: 1rem;
+      }
+
+      & .value {
+        margin-top: 1rem;
+      }
+
+      & .rate {
+        height: 1rem;
+      }
+
+      & .one {
+        background-image: linear-gradient(to right,
+          black 85%,
+          rgb(208, 214, 214) 85%);
+      }
+
+      & .two {
+        background-image: linear-gradient(to right,
+          black 90%,
+          rgb(208, 214, 214) 90%);
+      }
+
+      & .three {
+        background-image: linear-gradient(to right,
+          black 75%,
+          rgb(208, 214, 214) 75%);
+      }
+
+      & .four {
+        background-image: linear-gradient(to right,
+          black 75%,
+          rgb(208, 214, 214) 75%);
+      }
+    }
+
+    margin-bottom: 10rem;
+  }
+
+  & .expert {
+    padding: 0 2rem;
+    grid-column: center-start / center-end;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    grid-gap: 4rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      display: block;
+    }
+
+    & .left {
+      margin-top: 5rem;
+      padding-bottom: 4rem;
+
+      & .img {
+        width: 100%;
+        height: 100%;
+        filter: brightness(60%);
+      }
+    }
+
+    & .right {
+      & .heading {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      & .paragraph {
+        margin-bottom: 2rem;
+        color: $text-color;
+      }
+
+      & .details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+
+        & h1 {
+          color: $color-primary;
+          font-size: 2rem;
+          font-weight: 400;
+        }
+
+        & h2 {
+          color: $color-black;
+          font-size: 1.3rem;
+          font-weight: 400;
+        }
+
+        & p {
+          color: $text-color;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  & .brand {
+    padding: 0 2rem;
+    grid-column: center-start / center-end;
+    display: flex;
+    padding: 10rem 0;
+    justify-content: space-around;
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 1rem 0;
+    }
+
+    & .image {
+      & .img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .footer {
+    background-color: black;
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr) [center-start] repeat(6,
+      minmax(6rem, 13rem)) [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns:
+        [full-start] minmax(2rem, 1fr) [center-start] repeat(6,
+        minmax(6rem, 13rem)) [center-end] minmax(2rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      display: block;
+    }
+
+    & .content {
+      grid-column: center-start / center-end;
+
+      & .foot {
+        display: flex;
+        justify-content: space-between;
+
+        & .right {
+          @media only screen and (max-width: $bp-smallest) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+
+    & .content {
+      text-align: center;
+      padding: 5rem 0;
+
+      & .paragraph {
+        padding: 0 18rem;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          padding: 0;
+        }
+      }
+
+      & .foot {
+        border-top: 1px solid $color-white;
+        padding-top: 1rem;
+        color: $text-color;
+
+        & .icon {
+          padding: 1rem;
+          cursor: pointer;
+          transition: all 0.5s;
+
+          &:hover {
+            transform: rotate(360deg) scale(1.5);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,653 @@
+.container {
+  overflow: hidden;
+
+  .header {
+    background-color: $color-primary;
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 2rem;
+    }
+
+    & .head {
+      animation: head 1s;
+
+      @media only screen and (max-width: $bp-smallest) {
+        display: block;
+      }
+
+      & .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          display: grid;
+          grid-template-columns: 1fr max-content;
+          justify-content: center;
+        }
+
+        & .list {
+          display: flex;
+          opacity: 0;
+          visibility: collapse;
+          transform: translateX(5rem);
+
+          @media only screen and (max-width: $bp-small) {
+            z-index: 1000;
+            transform: translateX(0);
+          }
+
+          transition: all 0.5s;
+
+          @media only screen and (max-width: $bp-smallest) {
+            justify-self: center;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(1, max-content);
+            height: 2rem;
+          }
+
+          & .item {
+            list-style: none;
+            margin-right: 1rem;
+
+            @media only screen and (max-width: $bp-smallest) {
+              margin-right: 0;
+            }
+
+            & a {
+              text-decoration: none;
+              color: $color-black;
+              padding: 0.5rem;
+              position: relative;
+
+              &::before {
+                content: "";
+                width: 100%;
+                height: 0.3rem;
+                position: absolute;
+                background-color: black;
+                bottom: -0.5rem;
+                left: 0;
+                transform: scaleX(0);
+                transition: all 0.5s;
+              }
+
+              &:hover::before {
+                transform: scaleX(1);
+              }
+            }
+          }
+        }
+
+        & .show {
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+
+          @media only screen and (max-width: $bp-smallest) {
+            height: 50vh;
+          }
+        }
+
+        & .btn {
+          margin-top: 0.5rem;
+          width: 3.5rem;
+          height: 0.3rem;
+          background-color: black;
+          border: none;
+          outline: none;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.5s;
+
+          @media only screen and (max-width: $bp-smallest) {
+            align-self: flex-start;
+          }
+
+          &::before {
+            content: "";
+            width: 80%;
+            height: 100%;
+            position: absolute;
+            background-color: black;
+            bottom: -0.5rem;
+            left: 0;
+            transition: all 0.5s;
+          }
+
+          &::after {
+            content: "";
+            width: 60%;
+            height: 80%;
+            position: absolute;
+            background-color: black;
+            bottom: -1rem;
+            left: 0;
+            transition: all 0.5s;
+          }
+        }
+
+        & .btnx {
+          transform: rotate(400deg) scale(0.7);
+          outline: none;
+
+          &::before {
+            transform: rotate(460deg) translateX(-0.4rem);
+            height: 100%;
+            width: 100%;
+          }
+
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    .content {
+      @media only screen and (max-width: $bp-small) {
+        text-align: center;
+      }
+
+      & .text {
+        animation: text 1s;
+        margin-bottom: 10rem;
+
+        & .heading {
+          font-size: 5rem;
+          font-weight: 700;
+          margin: -1rem 0;
+
+          @media only screen and (max-width: $bp-smallest) {
+            font-size: 4rem;
+          }
+        }
+
+        & .heading-small {
+          font-size: 2rem;
+          font-weight: 100;
+        }
+
+        & .heading-medium {
+          font-size: 2.5rem;
+          font-weight: 100;
+          margin-bottom: 2rem;
+          display: flex;
+
+          & .rr {
+            font-size: 2.5rem;
+          }
+
+          @media only screen and (max-width: $bp-smallest) {
+            font-size: 2rem;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          & .on {
+            font-size: 2.5rem;
+            transform: scaleX(0);
+            transform-origin: left;
+            width: 0;
+            transition: all 1s;
+            margin-left: 1rem;
+          }
+
+          & .show {
+            transform: scaleX(1);
+            width: 35%;
+
+            @media only screen and (max-width: $bp-smallest) {
+              width: 10%;
+              margin: auto auto;
+            }
+          }
+        }
+
+        & .link {
+          text-decoration: none;
+          padding: 1rem 2rem;
+          color: $color-black;
+          border: 1px solid currentColor;
+          transition: all 0.4s;
+
+          &:hover {
+            background-color: $color-black;
+            color: #fff;
+            border: none;
+          }
+        }
+      }
+
+      & .img {
+        animation: image 1s;
+        justify-self: flex-end;
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+        display: block;
+
+        @media only screen and (max-width: $bp-small) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .some-word {
+    margin-top: 10rem;
+
+    & .head {
+      & .heading {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      & .paragraph {
+        color: $text-color;
+        padding: 0 20rem;
+
+        @media only screen and (max-width: $bp-small) {
+          padding: 0 1rem;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    & .left {
+      @media only screen and (max-width: $bp-small) {
+        margin-bottom: 2rem;
+      }
+
+      & .paragraph {
+        margin-bottom: 2rem;
+      }
+
+      & .link {
+        text-decoration: none;
+        padding: 1rem 2rem;
+        color: $color-black;
+        font-size: 1.2rem;
+        border: 1px solid currentColor;
+        transition: all 0.4s;
+
+        &:hover {
+          background-color: $color-black;
+          color: #fff;
+          border: none;
+        }
+      }
+    }
+
+    & .right {
+      & .heading {
+        font-size: 2rem;
+        padding: 1rem 0;
+      }
+
+      & .text {
+        margin-top: 1rem;
+      }
+
+      & .rate {
+        height: 1rem;
+      }
+
+      & .one {
+        background-color: rgb(208, 214, 214);
+
+        .grade {
+          background-color: black;
+          height: 100%;
+          width: 80%;
+          position: relative;
+
+          .kids {
+            position: absolute;
+            top: -3rem;
+            right: -1.5rem;
+
+            & .tri {
+              background-color: black;
+              width: 2rem;
+              height: 2rem;
+              clip-path: polygon(0 50%, 100% 50%, 50% 0);
+              transform: rotate(180deg);
+            }
+
+            & .value {
+              margin-bottom: -1rem;
+            }
+          }
+        }
+
+        .afterScroll {
+          animation: one 5s 1s;
+          animation-fill-mode: backwards;
+        }
+      }
+
+      & .two {
+        background-color: rgb(208, 214, 214);
+
+        .grade {
+          background-color: black;
+          height: 100%;
+          width: 90%;
+          position: relative;
+
+          .kids {
+            position: absolute;
+            top: -3.2rem;
+            right: -1.5rem;
+
+            & .tri {
+              background-color: black;
+              width: 2rem;
+              height: 2rem;
+              clip-path: polygon(0 50%, 100% 50%, 50% 0);
+              transform: rotate(180deg);
+            }
+
+            & .value {
+              margin-bottom: -1rem;
+            }
+          }
+        }
+
+        .afterScroll {
+          animation: two 5s 1s;
+          animation-fill-mode: backwards;
+        }
+      }
+
+      & .three {
+        background-color: rgb(208, 214, 214);
+
+        .grade {
+          background-color: black;
+          height: 100%;
+          width: 75%;
+          position: relative;
+
+          .kids {
+            position: absolute;
+            top: -3.2rem;
+            right: -1.5rem;
+
+            & .tri {
+              background-color: black;
+              width: 2rem;
+              height: 2rem;
+              clip-path: polygon(0 50%, 100% 50%, 50% 0);
+              transform: rotate(180deg);
+            }
+
+            & .value {
+              margin-bottom: -1rem;
+            }
+          }
+        }
+
+        .afterScroll {
+          animation: three 5s 1s;
+          animation-fill-mode: backwards;
+        }
+      }
+
+      & .four {
+        background-color: rgb(208, 214, 214);
+
+        .grade {
+          background-color: black;
+          height: 100%;
+          width: 68%;
+          position: relative;
+
+          .kids {
+            position: absolute;
+            top: -3.1rem;
+            right: -1.5rem;
+
+            & .tri {
+              background-color: black;
+              width: 2rem;
+              height: 2rem;
+              clip-path: polygon(0 50%, 100% 50%, 50% 0);
+              transform: rotate(180deg);
+            }
+
+            & .value {
+              margin-bottom: -1rem;
+            }
+          }
+        }
+
+        .afterScroll {
+          animation: four 5s 1s;
+          animation-fill-mode: backwards;
+        }
+      }
+    }
+  }
+
+  .latest {
+    padding-top: 5rem;
+
+    & .heading {
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    & .paragraph {
+      color: $text-color;
+      padding-right: 30rem;
+
+      @media only screen and (max-width: $bp-smallest) {
+        padding: 0;
+      }
+    }
+
+    & .nav {
+      margin: 2rem 0;
+
+      & .list {
+        & .item {
+          list-style: none;
+          margin-right: 1rem;
+
+          @media only screen and (max-width: $bp-smallest) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    & .image {
+      position: relative;
+      transition: all 0.5s;
+      margin: 0;
+
+      & .caption {
+        position: absolute;
+        left: 2rem;
+        bottom: 2rem;
+        font-size: 2rem;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+
+      &:hover .caption {
+        opacity: 1;
+      }
+
+      &:hover {
+        filter: brightness(40%);
+      }
+    }
+  }
+
+  .story {
+    margin-top: 10rem;
+    padding: 5rem 0;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.836),
+        rgba(0, 0, 0, 0.705)
+      ),
+      url(../img/slider/testmonial-slider.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    text-align: center;
+
+    .cont {
+      position: relative;
+      height: 30rem;
+
+      .person {
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        opacity: 0;
+        transform: translateX(1000rem);
+        backface-visibility: hidden;
+        transition: all 1s;
+      }
+
+      & .img {
+        margin-bottom: 1rem;
+        border-radius: 50%;
+      }
+
+      & .hhh {
+        width: 12%;
+      }
+
+      .active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    & .paragraph {
+      padding: 0 20rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+
+      @media only screen and (max-width: $bp-small) {
+        padding: 0 5rem;
+      }
+    }
+
+    & .name {
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+  }
+
+  .newsletter {
+    padding: 10rem 0;
+    text-align: center;
+
+    & .heading {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    & .paragraph {
+      padding: 0 18rem;
+      margin-bottom: 2rem;
+
+      @media only screen and (max-width: $bp-small) {
+        padding: 0 5rem;
+      }
+    }
+
+    & input {
+      padding: 0.5rem;
+      width: 20rem;
+      margin-right: -0.4rem;
+    }
+
+    & button {
+      padding: 0.75rem 2rem;
+      border: none;
+      background-color: $color-black;
+      color: #fff;
+    }
+
+    transition: all 1s;
+  }
+
+  .footer {
+    background-color: black;
+
+    & .content {
+      text-align: center;
+      padding: 5rem 0;
+
+      & .paragraph {
+        padding: 0 18rem;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+
+        @media only screen and (max-width: $bp-small) {
+          padding: 0 5rem;
+        }
+      }
+
+      & .foot {
+        border-top: 1px solid $color-white;
+        padding-top: 1rem;
+        color: $text-color;
+
+        @media only screen and (max-width: $bp-smallest) {
+          border: none;
+        }
+
+        & .icon {
+          padding: 1rem;
+          cursor: pointer;
+          transition: all 0.5s;
+
+          &:hover {
+            transform: rotate(360deg) scale(1.5);
+          }
+        }
+      }
+    }
+  }
+
+  & .paragraph {
+    color: $text-color;
+    position: relative;
+
+    & span {
+      font-size: 3rem;
+      font-weight: 500;
+      padding: 0 1rem 0 0;
+      color: black;
+      position: absolute;
+      top: -5px;
+      left: 0;
+      background-color: $color-white;
+    }
+  }
+}
+
+.cursor {
+  animation: cursor 1s infinite;
+  background-color: black;
+  width: 2rem;
+  height: 0.3rem;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  cursor: pointer;
+}

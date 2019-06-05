@@ -1,0 +1,143 @@
+@keyframes story {
+  0% {
+    background-image: url(../img/testmonial/t1.png);
+  }
+
+  100% {
+    background-image: url(../img/testmonial/t2.png);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes text {
+  0% {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes image {
+  0% {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
+
+  100% {
+    @media only screen and (max-width: 700px) {
+      opacity: 0.2;
+    }
+
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes head {
+  0% {
+    opacity: 0;
+    transform: translateY(-20rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes sent {
+  0% {
+    opacity: 1;
+    transform: translateX(10rem);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+}
+
+@keyframes err {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes one {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 80%;
+  }
+}
+
+@keyframes two {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 90%;
+    opacity: 1;
+  }
+}
+
+@keyframes three {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 75%;
+    opacity: 1;
+  }
+}
+
+@keyframes four {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 68%;
+    opacity: 1;
+  }
+}
